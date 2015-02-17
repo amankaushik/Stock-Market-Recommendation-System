@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.webserviceX.NET/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET/">
+      <s:element name="GetMortgagePayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Years" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Interest" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoanAmount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="AnnualTax" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="AnnualInsurance" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMortgagePaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMortgagePaymentResult" type="tns:MortgageResults" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MortgageResults">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MonthlyPrincipalAndInterest" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthlyTax" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthlyInsurance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPayment" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MortgageResults" nillable="true" type="tns:MortgageResults" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMortgagePaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMortgagePayment" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgagePaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMortgagePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgagePaymentHttpGetIn">
+    <wsdl:part name="Years" type="s:string" />
+    <wsdl:part name="Interest" type="s:string" />
+    <wsdl:part name="LoanAmount" type="s:string" />
+    <wsdl:part name="AnnualTax" type="s:string" />
+    <wsdl:part name="AnnualInsurance" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgagePaymentHttpGetOut">
+    <wsdl:part name="Body" element="tns:MortgageResults" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgagePaymentHttpPostIn">
+    <wsdl:part name="Years" type="s:string" />
+    <wsdl:part name="Interest" type="s:string" />
+    <wsdl:part name="LoanAmount" type="s:string" />
+    <wsdl:part name="AnnualTax" type="s:string" />
+    <wsdl:part name="AnnualInsurance" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgagePaymentHttpPostOut">
+    <wsdl:part name="Body" element="tns:MortgageResults" />
+  </wsdl:message>
+  <wsdl:portType name="MortgageSoap">
+    <wsdl:operation name="GetMortgagePayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Use this Web service to figure out your monthly mortgage payment</wsdl:documentation>
+      <wsdl:input message="tns:GetMortgagePaymentSoapIn" />
+      <wsdl:output message="tns:GetMortgagePaymentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MortgageHttpGet">
+    <wsdl:operation name="GetMortgagePayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Use this Web service to figure out your monthly mortgage payment</wsdl:documentation>
+      <wsdl:input message="tns:GetMortgagePaymentHttpGetIn" />
+      <wsdl:output message="tns:GetMortgagePaymentHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MortgageHttpPost">
+    <wsdl:operation name="GetMortgagePayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Use this Web service to figure out your monthly mortgage payment</wsdl:documentation>
+      <wsdl:input message="tns:GetMortgagePaymentHttpPostIn" />
+      <wsdl:output message="tns:GetMortgagePaymentHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MortgageSoap" type="tns:MortgageSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMortgagePayment">
+      <soap:operation soapAction="http://www.webserviceX.NET/GetMortgagePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MortgageSoap12" type="tns:MortgageSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMortgagePayment">
+      <soap12:operation soapAction="http://www.webserviceX.NET/GetMortgagePayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MortgageHttpGet" type="tns:MortgageHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetMortgagePayment">
+      <http:operation location="/GetMortgagePayment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MortgageHttpPost" type="tns:MortgageHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetMortgagePayment">
+      <http:operation location="/GetMortgagePayment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Mortgage">
+    <wsdl:port name="MortgageSoap" binding="tns:MortgageSoap">
+      <soap:address location="http://www.webservicex.net/mortgage.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MortgageSoap12" binding="tns:MortgageSoap12">
+      <soap12:address location="http://www.webservicex.net/mortgage.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MortgageHttpGet" binding="tns:MortgageHttpGet">
+      <http:address location="http://www.webservicex.net/mortgage.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MortgageHttpPost" binding="tns:MortgageHttpPost">
+      <http:address location="http://www.webservicex.net/mortgage.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

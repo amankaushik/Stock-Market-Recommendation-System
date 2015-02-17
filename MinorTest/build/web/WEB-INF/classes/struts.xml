@@ -1,0 +1,127 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <include file="example.xml"/>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+    </package>
+    <constant name="struts.devMode" value="true" />
+    <package name="minor.stockQuote" extends="struts-default">
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.NullPointerException"
+            result="error" />
+        </global-exception-mappings>
+        <action name="stockQuote" class="minor.stockQuote.stockQuote">
+            <result name="success">/stockQuotedisplay.jsp</result>
+            <result name="input">/home.jsp</result>
+            <result name="error">/errorStock.jsp</result>
+        </action> 
+        <action name="lstockQuote" class="minor.stockQuote.stockQuote">
+            <result name="success">/loginStockQuotesDisplay.jsp</result>
+            <result name="input">/portfolio.jsp</result>
+            <result name="error">/errorStock.jsp</result>
+        </action>         
+    </package>
+    <package name="minor.commodity" extends="struts-default">
+        <action name="c_display" class="minor.commodity.CommodityQuote">
+            <result name="success">/commoditydisplay.jsp</result>
+            <result name="input">/commodity.jsp</result>
+            <result name="error">/register_error.jsp</result>
+        </action>
+    </package>
+    <package name="minor.eft" extends="struts-default">
+        <action name="e_display" class="minor.eft.ETFQuote">
+            <result name="success">/eftdisplay.jsp</result>
+            <result name="input">/eft.jsp</result>
+            <result name="error">/register_error.jsp</result>
+        </action>
+    </package>
+    <package name="minor.register" extends="struts-default">
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.NullPointerException"
+            result="error" />
+        </global-exception-mappings>
+        <action name="register" class="minor.register.RegisterAction">  
+            <result name="success">/login.jsp</result>
+            <result name="input">/register.jsp</result>  
+            <result name="error">/register_error.jsp</result>  
+        </action>
+    </package>
+    <package name="minor.webservice" extends="struts-default">
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.NullPointerException"
+            result="error" />
+        </global-exception-mappings>
+        <action name="webservice1" class="minor.webservice.CurrencyConverter">
+            <result name="success">/currencyconverter.jsp</result>
+            <result name="error">/register_error.jsp</result>
+        </action>
+        <action name="webservice2" class="minor.webservice.MortageIndex">
+            <result name="success">/mortageindex.jsp</result>
+            <result name="error">/register_error.jsp</result>
+        </action>
+        <action name="webservice3" class="minor.webservice.MortageCalculator">
+            <result name="success">/mortageclaculator.jsp</result>
+            <result name="error">/register_error.jsp</result>
+        </action>
+        <action name="webservice4" class="minor.webservice.ARPLoanLease">
+            <result name="success">/arploanlease.jsp</result>
+            <result name="error">/register_error.jsp</result>
+        </action>
+        <action name="webservice5" class="minor.webservice.BalanceSheetInfo">
+            <result name="success">/balancesheet.jsp</result>
+            <result name="error">/register_error.jsp</result>
+        </action>
+        <action name="webservice6" class="minor.webservice.IncomeStatementInfo">
+            <result name="success">/incomestatement.jsp</result>
+            <result name="error">/register_error.jsp</result>
+        </action>
+        <action name="webservice7" class="minor.webservice.CashFlowInfo">
+            <result name="success">/cashflow.jsp</result>
+            <result name="error">/register_error.jsp</result>
+        </action>
+    </package>
+    
+    <package name="minor.login" extends="struts-default">
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.NullPointerException"
+            result="error" />
+        </global-exception-mappings>
+        <action name="login" class="minor.login.LoginAction">  
+            <result name="success">/login_success.jsp</result>
+            <result name="input">/login.jsp</result>  
+            <result name="error">/login_error.jsp</result>  
+        </action>
+        
+        <action name="logout" class="minor.login.Logout">  
+            
+            <result name="success">/logout_success.jsp</result>
+            <result name="login">/login.jsp</result>
+            
+        </action>  
+        
+        <action name="profile" class="minor.login.Profile">  
+            <result name="success" >/profile.jsp</result>  
+            <result name="error" >/register_error.jsp.jsp</result>  
+        </action>  
+        
+        <action name="portfolio" class="minor.login.Portfolio">  
+            <result name="success" >/portfolio.jsp</result>  
+            <result name="error" >/register_error.jsp</result>  
+        </action>
+        
+        <action name="addtoportfolio" class="minor.login.AddPortfolio">
+            <result name="success">/login_success.jsp</result>
+            <result name="input">/portfolio.jsp</result>
+            <result name="error">/errorStock.jsp</result>
+        </action>
+        <action name="delFromPortfolio" class="minor.login.DeleteStock">
+            <result name="success">/login_success.jsp</result>
+            <result name="input">/portfolio.jsp</result>
+            <result name="error">/errorStock.jsp</result>
+        </action>
+    </package>
+    <constant name="struts.action.excludePattern" value="/c_check"/>
+</struts>

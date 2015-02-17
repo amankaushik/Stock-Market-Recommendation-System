@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.webserviceX.NET/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;p&gt;&lt;br&gt;This Web service Provides monthly ,weekly and Historical Mortgage Indexes.&lt;br&gt;There are many possible ARM indexes. Each one has distinct market characteristics and fluctuates differently.&lt;br&gt; &lt;UL&gt;&lt;LI&gt;Constant Maturity Treasury (CMT) &lt;br&gt;&lt;LI&gt;Treasury Bill (T-Bill) &lt;br&gt;&lt;LI&gt;12-Month Treasury Average (MTA) &lt;LI&gt;Cost of Deposits Index (CODI) &lt;LI&gt;11th District Cost of Funds Index (COFI) &lt;LI&gt;Cost of Savings Index (COSI) &lt;LI&gt;London Inter Bank Offering Rates (LIBOR) &lt;LI&gt;Certificates of Deposit (CD) Indexes &lt;LI&gt;Prime Rate &lt;LI&gt;Fannie Mae's Required Net Yield (RNY) &lt;/UL&gt;&lt;/p&gt;</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET/">
+      <s:element name="GetCurrentMortgageIndexMonthly">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentMortgageIndexMonthlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCurrentMortgageIndexMonthlyResult" type="tns:MonthlyIndex" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MonthlyIndex">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IndexDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OneYearConstantMaturityTreasury" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThreeYearConstantMaturityTreasury" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FiveYearConstantMaturityTreasury" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThreeMonthTreasuryBill" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SixMonthTreasuryBill" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThreeMonthSecondaryMarketCD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SixMonthSecondaryMarketCD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EleventhDistrictCOFI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CostOfSavingsIndex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OneMonthLIBOR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThreeMonthLIBOR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SixMonthLIBOR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OneYearLIBOR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CostOfDepositsIndex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TwelveMonthTreasuryAverage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCurrentMortgageIndexByWeekly">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentMortgageIndexByWeeklyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCurrentMortgageIndexByWeeklyResult" type="tns:WeeklyIndex" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WeeklyIndex">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IndexDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OneYearConstantMaturityTreasury" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThreeYearConstantMaturityTreasury" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FiveYearConstantMaturityTreasury" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThreeMonthTreasuryBill" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SixMonthTreasuryBill" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThreeMonthSecondaryMarketCD" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMortgageIndexByMonth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMortgageIndexByMonthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMortgageIndexByMonthResult" type="tns:MonthlyIndex" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMortgageIndexByWeek">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Day" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMortgageIndexByWeekResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMortgageIndexByWeekResult" type="tns:WeeklyIndex" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MonthlyIndex" type="tns:MonthlyIndex" />
+      <s:element name="WeeklyIndex" type="tns:WeeklyIndex" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCurrentMortgageIndexMonthlySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentMortgageIndexMonthly" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMortgageIndexMonthlySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentMortgageIndexMonthlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMortgageIndexByWeeklySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentMortgageIndexByWeekly" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMortgageIndexByWeeklySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentMortgageIndexByWeeklyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByMonthSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMortgageIndexByMonth" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByMonthSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMortgageIndexByMonthResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByWeekSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMortgageIndexByWeek" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByWeekSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMortgageIndexByWeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMortgageIndexMonthlyHttpGetIn" />
+  <wsdl:message name="GetCurrentMortgageIndexMonthlyHttpGetOut">
+    <wsdl:part name="Body" element="tns:MonthlyIndex" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMortgageIndexByWeeklyHttpGetIn" />
+  <wsdl:message name="GetCurrentMortgageIndexByWeeklyHttpGetOut">
+    <wsdl:part name="Body" element="tns:WeeklyIndex" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByMonthHttpGetIn">
+    <wsdl:part name="Month" type="s:string" />
+    <wsdl:part name="Year" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByMonthHttpGetOut">
+    <wsdl:part name="Body" element="tns:MonthlyIndex" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByWeekHttpGetIn">
+    <wsdl:part name="Day" type="s:string" />
+    <wsdl:part name="Month" type="s:string" />
+    <wsdl:part name="Year" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByWeekHttpGetOut">
+    <wsdl:part name="Body" element="tns:WeeklyIndex" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMortgageIndexMonthlyHttpPostIn" />
+  <wsdl:message name="GetCurrentMortgageIndexMonthlyHttpPostOut">
+    <wsdl:part name="Body" element="tns:MonthlyIndex" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentMortgageIndexByWeeklyHttpPostIn" />
+  <wsdl:message name="GetCurrentMortgageIndexByWeeklyHttpPostOut">
+    <wsdl:part name="Body" element="tns:WeeklyIndex" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByMonthHttpPostIn">
+    <wsdl:part name="Month" type="s:string" />
+    <wsdl:part name="Year" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByMonthHttpPostOut">
+    <wsdl:part name="Body" element="tns:MonthlyIndex" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByWeekHttpPostIn">
+    <wsdl:part name="Day" type="s:string" />
+    <wsdl:part name="Month" type="s:string" />
+    <wsdl:part name="Year" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMortgageIndexByWeekHttpPostOut">
+    <wsdl:part name="Body" element="tns:WeeklyIndex" />
+  </wsdl:message>
+  <wsdl:portType name="MortgageIndexSoap">
+    <wsdl:operation name="GetCurrentMortgageIndexMonthly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current month ARM indexes</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentMortgageIndexMonthlySoapIn" />
+      <wsdl:output message="tns:GetCurrentMortgageIndexMonthlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMortgageIndexByWeekly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current week ARM indexes</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentMortgageIndexByWeeklySoapIn" />
+      <wsdl:output message="tns:GetCurrentMortgageIndexByWeeklySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByMonth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ARM indexes by Month</wsdl:documentation>
+      <wsdl:input message="tns:GetMortgageIndexByMonthSoapIn" />
+      <wsdl:output message="tns:GetMortgageIndexByMonthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByWeek">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ARM indexes by Week</wsdl:documentation>
+      <wsdl:input message="tns:GetMortgageIndexByWeekSoapIn" />
+      <wsdl:output message="tns:GetMortgageIndexByWeekSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MortgageIndexHttpGet">
+    <wsdl:operation name="GetCurrentMortgageIndexMonthly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current month ARM indexes</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentMortgageIndexMonthlyHttpGetIn" />
+      <wsdl:output message="tns:GetCurrentMortgageIndexMonthlyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMortgageIndexByWeekly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current week ARM indexes</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentMortgageIndexByWeeklyHttpGetIn" />
+      <wsdl:output message="tns:GetCurrentMortgageIndexByWeeklyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByMonth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ARM indexes by Month</wsdl:documentation>
+      <wsdl:input message="tns:GetMortgageIndexByMonthHttpGetIn" />
+      <wsdl:output message="tns:GetMortgageIndexByMonthHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByWeek">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ARM indexes by Week</wsdl:documentation>
+      <wsdl:input message="tns:GetMortgageIndexByWeekHttpGetIn" />
+      <wsdl:output message="tns:GetMortgageIndexByWeekHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MortgageIndexHttpPost">
+    <wsdl:operation name="GetCurrentMortgageIndexMonthly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current month ARM indexes</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentMortgageIndexMonthlyHttpPostIn" />
+      <wsdl:output message="tns:GetCurrentMortgageIndexMonthlyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMortgageIndexByWeekly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Current week ARM indexes</wsdl:documentation>
+      <wsdl:input message="tns:GetCurrentMortgageIndexByWeeklyHttpPostIn" />
+      <wsdl:output message="tns:GetCurrentMortgageIndexByWeeklyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByMonth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ARM indexes by Month</wsdl:documentation>
+      <wsdl:input message="tns:GetMortgageIndexByMonthHttpPostIn" />
+      <wsdl:output message="tns:GetMortgageIndexByMonthHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByWeek">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ARM indexes by Week</wsdl:documentation>
+      <wsdl:input message="tns:GetMortgageIndexByWeekHttpPostIn" />
+      <wsdl:output message="tns:GetMortgageIndexByWeekHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MortgageIndexSoap" type="tns:MortgageIndexSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentMortgageIndexMonthly">
+      <soap:operation soapAction="http://www.webserviceX.NET/GetCurrentMortgageIndexMonthly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMortgageIndexByWeekly">
+      <soap:operation soapAction="http://www.webserviceX.NET/GetCurrentMortgageIndexByWeekly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByMonth">
+      <soap:operation soapAction="http://www.webserviceX.NET/GetMortgageIndexByMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByWeek">
+      <soap:operation soapAction="http://www.webserviceX.NET/GetMortgageIndexByWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MortgageIndexSoap12" type="tns:MortgageIndexSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentMortgageIndexMonthly">
+      <soap12:operation soapAction="http://www.webserviceX.NET/GetCurrentMortgageIndexMonthly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMortgageIndexByWeekly">
+      <soap12:operation soapAction="http://www.webserviceX.NET/GetCurrentMortgageIndexByWeekly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByMonth">
+      <soap12:operation soapAction="http://www.webserviceX.NET/GetMortgageIndexByMonth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByWeek">
+      <soap12:operation soapAction="http://www.webserviceX.NET/GetMortgageIndexByWeek" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MortgageIndexHttpGet" type="tns:MortgageIndexHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetCurrentMortgageIndexMonthly">
+      <http:operation location="/GetCurrentMortgageIndexMonthly" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMortgageIndexByWeekly">
+      <http:operation location="/GetCurrentMortgageIndexByWeekly" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByMonth">
+      <http:operation location="/GetMortgageIndexByMonth" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByWeek">
+      <http:operation location="/GetMortgageIndexByWeek" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MortgageIndexHttpPost" type="tns:MortgageIndexHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetCurrentMortgageIndexMonthly">
+      <http:operation location="/GetCurrentMortgageIndexMonthly" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentMortgageIndexByWeekly">
+      <http:operation location="/GetCurrentMortgageIndexByWeekly" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByMonth">
+      <http:operation location="/GetMortgageIndexByMonth" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageIndexByWeek">
+      <http:operation location="/GetMortgageIndexByWeek" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MortgageIndex">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">&lt;p&gt;&lt;br&gt;This Web service Provides monthly ,weekly and Historical Mortgage Indexes.&lt;br&gt;There are many possible ARM indexes. Each one has distinct market characteristics and fluctuates differently.&lt;br&gt; &lt;UL&gt;&lt;LI&gt;Constant Maturity Treasury (CMT) &lt;br&gt;&lt;LI&gt;Treasury Bill (T-Bill) &lt;br&gt;&lt;LI&gt;12-Month Treasury Average (MTA) &lt;LI&gt;Cost of Deposits Index (CODI) &lt;LI&gt;11th District Cost of Funds Index (COFI) &lt;LI&gt;Cost of Savings Index (COSI) &lt;LI&gt;London Inter Bank Offering Rates (LIBOR) &lt;LI&gt;Certificates of Deposit (CD) Indexes &lt;LI&gt;Prime Rate &lt;LI&gt;Fannie Mae's Required Net Yield (RNY) &lt;/UL&gt;&lt;/p&gt;</wsdl:documentation>
+    <wsdl:port name="MortgageIndexSoap" binding="tns:MortgageIndexSoap">
+      <soap:address location="http://www.webservicex.net/MortgageIndex.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MortgageIndexSoap12" binding="tns:MortgageIndexSoap12">
+      <soap12:address location="http://www.webservicex.net/MortgageIndex.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MortgageIndexHttpGet" binding="tns:MortgageIndexHttpGet">
+      <http:address location="http://www.webservicex.net/MortgageIndex.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MortgageIndexHttpPost" binding="tns:MortgageIndexHttpPost">
+      <http:address location="http://www.webservicex.net/MortgageIndex.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

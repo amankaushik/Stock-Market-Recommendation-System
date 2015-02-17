@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSGEN SECTION
+                ===================
+            -->
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-NewWebService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/NewWebService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NewWebService" destdir="${build.generated.dir}/jax-wsCache/NewWebService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/NewWebService/wsdl/localhost_8080/MinorWebService/NewWebService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/MinorWebService/NewWebService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/NewWebService/wsdl/localhost_8080/MinorWebService/NewWebService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/NewWebService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/NewWebService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-NewWebService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/minor/companyinfo"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/NewWebService"/>
+    </target>
+    <target name="wsimport-client-CurrencyConvertor" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CurrencyConvertor"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CurrencyConvertor" destdir="${build.generated.dir}/jax-wsCache/CurrencyConvertor" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CurrencyConvertor/wsdl/www.webservicex.net/CurrencyConvertor.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://www.webservicex.net/CurrencyConvertor.asmx?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CurrencyConvertor/wsdl/www.webservicex.net/CurrencyConvertor.asmx.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CurrencyConvertor"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CurrencyConvertor">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CurrencyConvertor" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/net/webservicex"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CurrencyConvertor"/>
+    </target>
+    <target name="wsimport-client-FinanceService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/FinanceService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/FinanceService" destdir="${build.generated.dir}/jax-wsCache/FinanceService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/FinanceService/wsdl/www.webservicex.net/FinanceService.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://www.webservicex.net/FinanceService.asmx?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/FinanceService/wsdl/www.webservicex.net/FinanceService.asmx.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/FinanceService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/FinanceService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-FinanceService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/net/webservicex"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/FinanceService"/>
+    </target>
+    <target name="wsimport-client-MortgageIndex" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/MortgageIndex"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MortgageIndex" destdir="${build.generated.dir}/jax-wsCache/MortgageIndex" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MortgageIndex/wsdl/www.webservicex.net/MortgageIndex.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://www.webservicex.net/MortgageIndex.asmx?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MortgageIndex/wsdl/www.webservicex.net/MortgageIndex.asmx.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/MortgageIndex"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/MortgageIndex">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-MortgageIndex" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/net/webservicex"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/MortgageIndex"/>
+    </target>
+    <target name="wsimport-client-mortgage" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/mortgage"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/mortgage" destdir="${build.generated.dir}/jax-wsCache/mortgage" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/mortgage/wsdl/www.webservicex.net/mortgage.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://www.webservicex.net/mortgage.asmx?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/mortgage/wsdl/www.webservicex.net/mortgage.asmx.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/mortgage"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/mortgage">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-mortgage" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/net/webservicex"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/mortgage"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-NewWebService, wsimport-client-CurrencyConvertor, wsimport-client-FinanceService, wsimport-client-MortgageIndex, wsimport-client-mortgage"/>
+</project>

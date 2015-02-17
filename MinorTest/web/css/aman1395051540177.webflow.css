@@ -1,0 +1,70 @@
+body {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: #798bdb;
+  background-image: -webkit-linear-gradient(black, white);
+  background-image: -o-linear-gradient(black, white);
+  background-image: linear-gradient(black, white);
+  box-shadow: black 1px 1px 3px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 700;
+}
+h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 700;
+}
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+}
+h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+h5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+}
+p {
+  margin-bottom: 5px;
+}
+.button {
+  display: inline-block;
+  padding: 4px 15px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}

@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://companyInfo.minor/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://companyInfo.minor/">
+
+<xs:element name="getCashFlow" type="tns:getCashFlow"/>
+
+<xs:element name="getCashFlowResponse" type="tns:getCashFlowResponse"/>
+
+<xs:element name="getCompanyInfo" type="tns:getCompanyInfo"/>
+
+<xs:element name="getCompanyInfoResponse" type="tns:getCompanyInfoResponse"/>
+
+<xs:element name="getIncomeStatement" type="tns:getIncomeStatement"/>
+
+<xs:element name="getIncomeStatementResponse" type="tns:getIncomeStatementResponse"/>
+
+<xs:complexType name="getCashFlow">
+<xs:sequence>
+<xs:element name="ticker" type="xs:string" minOccurs="0"/>
+<xs:element name="timeframe" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCashFlowResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cashFlow" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cashFlow">
+<xs:sequence>
+<xs:element name="adjustmentsToNetIncome" type="xs:string" minOccurs="0"/>
+<xs:element name="capitalExpenditures" type="xs:string" minOccurs="0"/>
+<xs:element name="changeInCashandCashEquivalents" type="xs:string" minOccurs="0"/>
+<xs:element name="changesInAccountsReceivables" type="xs:string" minOccurs="0"/>
+<xs:element name="changesInInventories" type="xs:string" minOccurs="0"/>
+<xs:element name="changesInLiabilities" type="xs:string" minOccurs="0"/>
+<xs:element name="changesInOtherOperatingActivities" type="xs:string" minOccurs="0"/>
+<xs:element name="depreciation" type="xs:string" minOccurs="0"/>
+<xs:element name="dividendsPaid" type="xs:string" minOccurs="0"/>
+<xs:element name="effectOfExchangeRateChanges" type="xs:string" minOccurs="0"/>
+<xs:element name="investments" type="xs:string" minOccurs="0"/>
+<xs:element name="netBorrowings" type="xs:string" minOccurs="0"/>
+<xs:element name="netIncome" type="xs:string" minOccurs="0"/>
+<xs:element name="otherCashFlowsfromFinancingActivities" type="xs:string" minOccurs="0"/>
+<xs:element name="otherCashflowsfromInvestingActivities" type="xs:string" minOccurs="0"/>
+<xs:element name="period" type="xs:string" minOccurs="0"/>
+<xs:element name="salePurchaseofStock" type="xs:string" minOccurs="0"/>
+<xs:element name="symbol" type="xs:string" minOccurs="0"/>
+<xs:element name="timeframe" type="xs:string" minOccurs="0"/>
+<xs:element name="totalCashFlowFromOperatingActivities" type="xs:string" minOccurs="0"/>
+<xs:element name="totalCashFlowsFromFinancingActivities" type="xs:string" minOccurs="0"/>
+<xs:element name="totalCashFlowsFromInvestingActivities" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCompanyInfo">
+<xs:sequence>
+<xs:element name="ticker" type="xs:string" minOccurs="0"/>
+<xs:element name="timeframe" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCompanyInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:balanceSheet" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balanceSheet">
+<xs:sequence>
+<xs:element name="accountsPayable" type="xs:string" minOccurs="0"/>
+<xs:element name="accumulatedAmortization" type="xs:string" minOccurs="0"/>
+<xs:element name="capitalSurplus" type="xs:string" minOccurs="0"/>
+<xs:element name="cashAndCashEquivalents" type="xs:string" minOccurs="0"/>
+<xs:element name="commonStock" type="xs:string" minOccurs="0"/>
+<xs:element name="deferredLongTermAssetCharges" type="xs:string" minOccurs="0"/>
+<xs:element name="deferredLongTermLiabilityCharges" type="xs:string" minOccurs="0"/>
+<xs:element name="goodwill" type="xs:string" minOccurs="0"/>
+<xs:element name="intangibleAssets" type="xs:string" minOccurs="0"/>
+<xs:element name="inventory" type="xs:string" minOccurs="0"/>
+<xs:element name="longTermDebt" type="xs:string" minOccurs="0"/>
+<xs:element name="longTermInvestments" type="xs:string" minOccurs="0"/>
+<xs:element name="minorityInterest" type="xs:string" minOccurs="0"/>
+<xs:element name="miscStocksOptionsWarrants" type="xs:string" minOccurs="0"/>
+<xs:element name="negativeGoodwill" type="xs:string" minOccurs="0"/>
+<xs:element name="netReceivables" type="xs:string" minOccurs="0"/>
+<xs:element name="netTangibleAssets" type="xs:string" minOccurs="0"/>
+<xs:element name="otherAssets" type="xs:string" minOccurs="0"/>
+<xs:element name="otherCurrentAssets" type="xs:string" minOccurs="0"/>
+<xs:element name="otherCurrentLiabilities" type="xs:string" minOccurs="0"/>
+<xs:element name="otherLiabilities" type="xs:string" minOccurs="0"/>
+<xs:element name="otherStockholderEquity" type="xs:string" minOccurs="0"/>
+<xs:element name="period" type="xs:string" minOccurs="0"/>
+<xs:element name="preferredStock" type="xs:string" minOccurs="0"/>
+<xs:element name="propertyPlantandEquipment" type="xs:string" minOccurs="0"/>
+<xs:element name="redeemablePreferredStock" type="xs:string" minOccurs="0"/>
+<xs:element name="retainedEarnings" type="xs:string" minOccurs="0"/>
+<xs:element name="shortTermInvestments" type="xs:string" minOccurs="0"/>
+<xs:element name="short_CurrentLongTermDebt" type="xs:string" minOccurs="0"/>
+<xs:element name="symbol" type="xs:string" minOccurs="0"/>
+<xs:element name="timeframe" type="xs:string" minOccurs="0"/>
+<xs:element name="totalAssets" type="xs:string" minOccurs="0"/>
+<xs:element name="totalCurrentAssets" type="xs:string" minOccurs="0"/>
+<xs:element name="totalCurrentLiabilities" type="xs:string" minOccurs="0"/>
+<xs:element name="totalLiabilities" type="xs:string" minOccurs="0"/>
+<xs:element name="totalStockholderEquity" type="xs:string" minOccurs="0"/>
+<xs:element name="treasuryStock" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getIncomeStatement">
+<xs:sequence>
+<xs:element name="ticker" type="xs:string" minOccurs="0"/>
+<xs:element name="timeframe" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getIncomeStatementResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:incomeStatement" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="incomeStatement">
+<xs:sequence>
+<xs:element name="costofRevenue" type="xs:string" minOccurs="0"/>
+<xs:element name="discontinuedOperations" type="xs:string" minOccurs="0"/>
+<xs:element name="earningsBeforeInterestAndTaxes" type="xs:string" minOccurs="0"/>
+<xs:element name="effectOfAccountingChanges" type="xs:string" minOccurs="0"/>
+<xs:element name="extraordinaryItems" type="xs:string" minOccurs="0"/>
+<xs:element name="grossProfit" type="xs:string" minOccurs="0"/>
+<xs:element name="incomeBeforeTax" type="xs:string" minOccurs="0"/>
+<xs:element name="incomeTaxExpense" type="xs:string" minOccurs="0"/>
+<xs:element name="interestExpense" type="xs:string" minOccurs="0"/>
+<xs:element name="minorityInterest" type="xs:string" minOccurs="0"/>
+<xs:element name="netIncome" type="xs:string" minOccurs="0"/>
+<xs:element name="netIncomeApplicableToCommonShares" type="xs:string" minOccurs="0"/>
+<xs:element name="netIncomeFromContinuingOps" type="xs:string" minOccurs="0"/>
+<xs:element name="nonRecurring" type="xs:string" minOccurs="0"/>
+<xs:element name="operatingIncomeorLoss" type="xs:string" minOccurs="0"/>
+<xs:element name="otherItems" type="xs:string" minOccurs="0"/>
+<xs:element name="others" type="xs:string" minOccurs="0"/>
+<xs:element name="period" type="xs:string" minOccurs="0"/>
+<xs:element name="preferredStockAndOtherAdjustments" type="xs:string" minOccurs="0"/>
+<xs:element name="researchDevelopment" type="xs:string" minOccurs="0"/>
+<xs:element name="sellingGeneralandAdministrative" type="xs:string" minOccurs="0"/>
+<xs:element name="symbol" type="xs:string" minOccurs="0"/>
+<xs:element name="timeframe" type="xs:string" minOccurs="0"/>
+<xs:element name="totalOperatingExpenses" type="xs:string" minOccurs="0"/>
+<xs:element name="totalOtherIncome_ExpensesNet" type="xs:string" minOccurs="0"/>
+<xs:element name="totalRevenue" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
